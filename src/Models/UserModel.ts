@@ -1,13 +1,5 @@
 import mongoose, { model, Schema } from "mongoose";
-import { isModuleNamespaceObject } from "util/types";
-
-interface IUser {
-  fname: string,
-  lname: string,
-  email: string,
-  uname: string,
-  password: string,
-}
+import IUser from "../Interfaces/IUser"
 
 const userSchema = new Schema<IUser>({
   fname: {
@@ -20,18 +12,16 @@ const userSchema = new Schema<IUser>({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "*Campo obrigatório!"],
   },
   uname: {
     type: String,
-    required: true,
+    required: [true, "*Campo obrigatório!"],
   },
   password: {
     type: String,
-    required: true,
+    required: [true, "*Campo obrigatório!"],
   },
 })
 
-const User = model<IUser>('User', userSchema)
-
-module.exports = User
+export default mongoose.model<IUser>("User", userSchema);
