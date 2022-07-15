@@ -1,14 +1,10 @@
-import express, { Express, Request, Response } from 'express';
+import express, { ErrorRequestHandler, Express, NextFunction, Request, Response } from 'express';
 // import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
 dotenv.config();
-
-const app: Express = express();
-const port = process.env.PORT;
-app.use(express.json());
 
 const uri = `mongodb+srv://gabriela:${process.env.DB_PASS}@nodejscluster.nkvnxor.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(uri);
@@ -21,7 +17,16 @@ mongoose.connection.on("error", function(err) {
   console.log("Database error " + err);
 })
 
+const app: Express = express();
+const port = process.env.PORT;
+app.use(express.json());
+
 require('./Routes/index')(app);
+
+app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
+  console.log(err);
+  res.status(422).send({error: err.message});
+})
 
 app.use(cors());
 app.listen(port, () => {
