@@ -1,12 +1,11 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express, Request, Response, NextFunction } from 'express';
+import User from "../Models/UserModel"
 
-exports.post = (req: Request, res: Response) => {
-  console.log("You made a POST request: ", req.body);
-  res.status(201).send({
-    type: "POST",
-    fname: req.body.fname,
-    lname: req.body.lname
-  });
+exports.post = (req: Request, res: Response, next: NextFunction) => {
+  User.create(req.body).then(function(u) {
+    res.send(u)
+  })
+  .catch((e) => console.log(e))
 };
 
 exports.put = (req: Request, res: Response) => {
