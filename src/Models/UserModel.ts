@@ -22,6 +22,10 @@ const userSchema = new Schema<IUser>({
     type: String,
     required: [true, "*Campo obrigatório!"],
   },
+  is_admin: {
+    type: Boolean,
+    default: false,
+  }
 })
 
 export default mongoose.model<IUser>("User", userSchema);
