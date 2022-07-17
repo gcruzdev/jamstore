@@ -5,36 +5,39 @@ exports.post = (req: Request, res: Response, next: NextFunction) => {
   User.create(req.body).then(function(u) {
     res.send(u)
   })
-  .catch((e) => console.log(e))
+  .catch(next);
 };
 
-exports.put = (req: Request, res: Response) => {
+exports.put = (req: Request, res: Response, next: NextFunction) => {
   let id = req.params.id
-  res.status(201).send({
-    type: "PUT",
-    msg: `Rota PUT com id ${id}!`,
-  });
+  User.findByIdAndUpdate({ _id: id},
+        req.body).then(function() {
+    User.findOne({ _id: id }).then(function (u) {
+      res.send(u);
+    });
+  }).catch(next);
 };
 
-exports.delete = (req: Request, res: Response) => {
+exports.delete = (req: Request, res: Response, next: NextFunction) => {
   let id = req.params.id;
-  res.status(200).send({
-    type: "DELETE",
-    msg: `Rota DELETE com id ${id}`,
-  });
+  User.findByIdAndRemove({
+    _id: id
+  }).then(function(u) {
+    res.send(u);
+  }).catch(next)
 };
 
-exports.get = (req: Request, res: Response) => {
-  res.status(200).send({
-    type: "GET",
-    msg: "Rota GET",
-  });
+exports.get = (req: Request, res: Response, next: NextFunction) => {
+  User.find({}).then(function(u) {
+    res.send(u);
+  }).catch(next)
 }
 
-exports.getById = (req: Request, res: Response) => {
+exports.getById = (req: Request, res: Response, next: NextFunction) => {
   let id = req.params.id;
-  res.status(200).send({
-    type: "GET",
-    msg: `Rota GET com id ${id}`,
-  })
+  User.findById({
+    _id: id
+  }).then(function (u) {
+    res.send(u)
+  }).catch(next)
 }
