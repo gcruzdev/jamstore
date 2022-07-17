@@ -4,4 +4,5 @@ export default interface IUser {
   email: string,
   uname: string,
   password: string,
+  is_admin: boolean
 }
