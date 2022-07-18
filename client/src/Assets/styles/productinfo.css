@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
+
+.product-info {
+  display: flex;
+  max-width: 1000px;
+  margin: 1.5rem;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.product-img img {
+  width: 100%;
+}
+
+.product-img {
+  border: 1px solid rgb(219, 219, 219);
+  padding: 1.5rem;
+  width: 50%;
+}
+
+.product-details {
+  font-family: 'Roboto', sans-serif;
+  width: 50%;
+}
+
+.product-details h1 {
+  font-weight: 600;
+  color: rgb(88, 42, 27);
+}
+
+.product-details p {
+  font-size: 1rem;
+}
+
+.product-details #value {
+  margin-bottom: 1rem
+}
+
+.product-details #description {
+  font-weight: 300;
+  line-height: 25px;
+  text-align: justify;
+}
+
+.product-details #quantity {
+  background-color: transparent;
+  width: 50px;
+  padding: 10px;
+  border: 1px solid rgb(219, 219, 219);
+  margin: 0 0 1rem 1rem;
+}
+
+.product-details #add-to-cart {
+  width: 100%;
+  border: none;
+  background-color:rgb(88, 42, 27);
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
