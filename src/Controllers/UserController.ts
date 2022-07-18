@@ -33,10 +33,13 @@ exports.get = (req: Request, res: Response, next: NextFunction) => {
   }).catch(next)
 }
 
-exports.getById = (req: Request, res: Response, next: NextFunction) => {
-  let id = req.params.id;
-  User.findById({
-    _id: id
+exports.getByMailAndPass = (req: Request, res: Response, next: NextFunction) => {
+  let mail = req.params.mail;
+  let password = req.params.password;
+  console.log(req.params)
+  User.find({
+    mail: mail,
+    password: password
   }).then(function (u) {
     res.send(u)
   }).catch(next)

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../Assets/styles/loginmodal.css';
 import Button from './Button';
 
@@ -8,16 +8,32 @@ interface LoginModalProps {
 
 export default function LoginModal({setIsModalOpen}: LoginModalProps) {
   const [isSignUp, setIsSignUp] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setEmail(e.currentTarget.value);
+  }
+
+  function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setPassword(e.currentTarget.value);
+  }
+
+  function handleSignInClick() {
+    fetch(`http://localhost:8000/user/${email}&${password}`)
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+  }
 
   {
     if (!isSignUp) {
       return (
         <div className="login-modal">
           <h1>Entre na sua conta</h1>
-          <input type="text" placeholder="Email"/>
-          <input type="password" placeholder="Senha"/>
+          <input onChange={(e) => handleEmailChange(e)} type="text" placeholder="Email"/>
+          <input onChange={(e) => handlePasswordChange(e)} type="password" placeholder="Senha"/>
           <div className="button-input">
-            <Button handleClick={() => { return; }} text="Entrar"/>
+            <Button handleClick={handleSignInClick} text="Entrar"/>
           </div>
           <p>Não possui uma conta? <span onClick={() => setIsSignUp(true)}>Clique aqui</span></p>
         </div>
