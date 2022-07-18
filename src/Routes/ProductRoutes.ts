@@ -6,5 +6,5 @@ module.exports = (app: Express = express()) => {
    app.put('/product/:id', ProductController.put);
    app.delete('/product/:id', ProductController.delete);
    app.get('/products', ProductController.get);
-   app.get('/product/:id', ProductController.getById);
+   app.get('/product/:code', ProductController.getByCode);
 }
