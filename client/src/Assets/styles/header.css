@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&display=swap');
+
+header { 
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem;
+}
