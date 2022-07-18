@@ -20,6 +20,7 @@ mongoose.connection.on("error", function(err) {
 const app: Express = express();
 const port = process.env.PORT;
 app.use(express.json());
+app.use(cors({origin: '*'}));
 
 require('./Routes/index')(app);
 
@@ -28,7 +29,6 @@ app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
   res.status(422).send({error: err.message});
 })
 
-app.use(cors());
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 })
