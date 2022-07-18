@@ -3,7 +3,7 @@ import Product from "./Product"
 import IProduct from "../Interfaces/IProduct"
 import '../Assets/styles/productsdisplay.css'
 
-export default function ProductsDispaly() {
+export default function ProductsDisplay() {
   const [products, setProducts] = useState<IProduct[]>([])
 
   useEffect(() => {
