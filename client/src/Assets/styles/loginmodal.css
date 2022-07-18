@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
+
+.login-modal {
+  font-family: 'Roboto', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.5rem;
+  width: 400px;
+  height: fit-content;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.login-modal h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: rgb(168, 10, 10);
+}
+
+.login-modal input {
+  width: 96%;
+  height: 50px;
+  margin: 1rem 0 0rem 0;
+  border: 1px solid rgb(219, 219, 219);
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.login-modal p {
+  font-size: .9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-modal span {
+  font-weight: 600;
+  color: rgb(88, 42, 27);
+  cursor: pointer;
+}
+
+.login-modal .button-input {
+  margin-top: 1rem;
+}
