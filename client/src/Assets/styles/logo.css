@@ -1,0 +1,6 @@
+.logo h1 {
+  font-family: 'Playfair Display', serif;
+  text-transform: lowercase;
+  color: rgb(168, 10, 10);
+  font-weight: 900;
+}
