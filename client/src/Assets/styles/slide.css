@@ -1,0 +1,7 @@
+.slide-1 {
+  background-image: url("../images/jam-slide-1.jpg");
+  width: 100%;
+  height: 620px;
+  background-size: cover;
+  background-position: center center;
+}
