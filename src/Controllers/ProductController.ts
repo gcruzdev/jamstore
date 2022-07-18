@@ -33,10 +33,10 @@ exports.get = (req: Request, res: Response, next: NextFunction) => {
   }).catch(next)
 }
 
-exports.getById = (req: Request, res: Response, next: NextFunction) => {
-  let id = req.params.id;
-  Product.findById({
-    _id: id
+exports.getByCode = (req: Request, res: Response, next: NextFunction) => {
+  let code = req.params.code;
+  Product.find({
+    code: code
   }).then(function (p) {
     res.send(p)
   }).catch(next)
