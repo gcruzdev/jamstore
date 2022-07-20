@@ -20,7 +20,7 @@ export default function LoginModal({setIsModalOpen}: LoginModalProps) {
   }
 
   function handleSignInClick() {
-    fetch(`http://localhost:8000/user/${email}&${password}`)
+    fetch(`http://localhost:27017/user/${email}&${password}`)
     .then((res) => res.json())
     .then((data) => console.log(data))
   }
