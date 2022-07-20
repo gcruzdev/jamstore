@@ -18,7 +18,7 @@ export default function ProductInfo() {
   const [productInfo, setProductInfo] = useState<IProduct>(ProductInitialValue)
 
   useEffect(() => {
-    fetch("http://localhost:8000/product/" + code)
+    fetch("http://localhost:27017/product/" + code)
       .then(res => res.json())
       .then(
         (data) => {
